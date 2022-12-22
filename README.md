@@ -1,6 +1,7 @@
 # Moodie
 
 Project 2 JS/React September 2022 realized at the Wild Code School by :
+
 Projet 2 JS/React Septembre 2022 realisé à la Wild Code School composé de :
 
 - Anita Darecka
