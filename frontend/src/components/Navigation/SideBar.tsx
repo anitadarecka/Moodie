@@ -1,9 +1,23 @@
-import React from "react";
-import { PropTypes } from "prop-types";
+import React, { Dispatch, SetStateAction } from "react";
+import PropTypes from "prop-types";
 import "./SideBar.css";
 import moods from "../../tools/moods";
 import logo from "../../assets/logo.png";
 import Button from "../Buttons/Button";
+
+interface SideBarProps {
+  mood: string;
+  handleMoodChange: React.MouseEventHandler<HTMLLIElement | HTMLInputElement>;
+  genreList: { id: number; name: string }[];
+  setGenreId: Dispatch<SetStateAction<number>>;
+  setGenreName: Dispatch<SetStateAction<string>>;
+}
+[];
+
+interface GenreProps {
+  id: number;
+  name: string;
+}
 
 const SideBar = ({
   mood,
@@ -11,9 +25,14 @@ const SideBar = ({
   genreList,
   setGenreId,
   setGenreName,
-}) => {
-  const handleGenreChange = (genre) => {
-    handleMoodChange("Genre");
+}: SideBarProps) => {
+  const handleGenreChange = (
+    e: React.MouseEvent<HTMLLIElement>,
+    genre: GenreProps
+  ) => {
+    console.log(e);
+    e.preventDefault();
+    handleMoodChange(e);
     setGenreId(genre.id);
     setGenreName(genre.name);
   };
@@ -28,7 +47,7 @@ const SideBar = ({
         onKeyPress={() => {
           window.location.href = "http://localhost:3000";
         }}
-        tabIndex="0"
+        tabIndex={0}
       >
         <img src={logo} alt="logo-desktop" />
       </div>
@@ -48,9 +67,8 @@ const SideBar = ({
             </div>
             <li
               role="presentation"
-              onClick={() => {
-                handleMoodChange("Favorites");
-              }}
+              value="Favorites"
+              onClick={handleMoodChange}
             >
               <h3>Favorites</h3>
             </li>
@@ -64,7 +82,8 @@ const SideBar = ({
                     key={el.id}
                     role="presentation"
                     tabIndex={index}
-                    onClick={() => handleGenreChange(el)}
+                    value="Genre"
+                    onClick={(e) => handleGenreChange(e, el)}
                   >
                     {el.name}
                   </li>

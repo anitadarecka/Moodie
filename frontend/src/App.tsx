@@ -21,6 +21,7 @@ const App = () => {
   setTimeout(() => setDisplayVideo(false), 5000);
   const handleMoodChange = (event: React.MouseEvent<HTMLInputElement>) => {
     const newMood: string = event.currentTarget.value;
+    console.log(newMood);
     setMood(newMood);
     setIsLoading(true);
     switch (newMood) {
@@ -77,7 +78,7 @@ const App = () => {
         </FavoritesProvider>
       ) : (
         <>
-          <AnimatePresence>
+          {/* <AnimatePresence>
             {displayVideo && (
               <motion.div
                 initial={{ opacity: 1 }}
@@ -87,7 +88,7 @@ const App = () => {
                 <Videointro />{" "}
               </motion.div>
             )}
-          </AnimatePresence>
+          </AnimatePresence> */}
           <Intro handleMoodChange={handleMoodChange} />
         </>
       )}

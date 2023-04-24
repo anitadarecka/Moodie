@@ -1,11 +1,15 @@
 import React from "react";
-import { PropTypes } from "prop-types";
+import PropTypes from "prop-types";
 import ButtonIntro from "../components/Buttons/ButtonIntro";
 import logo from "../assets/logo.png";
 import "./Intro.css";
 import moods from "../tools/moods";
 
-const Intro = ({ handleMoodChange }) => {
+type IntroProps = {
+  handleMoodChange: React.MouseEventHandler<HTMLInputElement>;
+};
+
+const Intro = ({ handleMoodChange }: IntroProps) => {
   return (
     <div className="intro">
       <div className="headerintro">
