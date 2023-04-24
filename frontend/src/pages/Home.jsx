@@ -42,14 +42,16 @@ const Home = ({
   const { favorite } = useFavorites();
   const [favoritesData, setFavoritesData] = useState([]);
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${
-          favorite[favorite.length - 1]
-        }?api_key=${API_KEY}`
-      )
-      .then((response) => response.data)
-      .then((data) => setFavoritesData([...favoritesData, data]));
+    if (favorite.length > 0) {
+      axios
+        .get(
+          `https://api.themoviedb.org/3/movie/${
+            favorite[favorite.length - 1]
+          }?api_key=${API_KEY}`
+        )
+        .then((response) => response.data)
+        .then((data) => setFavoritesData([...favoritesData, data]));
+    }
   }, [favorite]);
   const url2 = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`;
   const [genreList, setGenreList] = useState([]);

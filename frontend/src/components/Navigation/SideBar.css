@@ -121,7 +121,6 @@ ul {
 /* // Mobile Version // */
 
 @media only screen and (max-width: 767px) {
-
   .logo-desktop img {
     display: none;
   }

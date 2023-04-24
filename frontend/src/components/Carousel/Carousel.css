@@ -22,8 +22,9 @@
   grid-area: 1 / 1;
   width: calc(0.95 * 300px);
   height: calc(0.95 * 460px);
-  background-size: calc(0.95*300px) calc(0.95*460px);
-  transform: translateX(calc(50% * var(--offset))) rotateY(var(--rotate)) scale(var(--scale));
+  background-size: calc(0.95 * 300px) calc(0.95 * 460px);
+  transform: translateX(calc(50% * var(--offset))) rotateY(var(--rotate))
+    scale(var(--scale));
   transform-origin: center;
   z-index: var(--zindex);
   position: relative;

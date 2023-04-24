@@ -1,13 +1,21 @@
+import React, { MouseEventHandler } from "react";
 import PropTypes from "prop-types";
 
-const ButtonIntro = ({ mood, img, handleMoodChange }) => {
+type ButtonProps = {
+  mood: string;
+  img: string;
+  handleMoodChange: MouseEventHandler<HTMLInputElement>;
+};
+
+const ButtonIntro = ({ mood, img, handleMoodChange }: ButtonProps) => {
   return (
     <div>
       <input
         type="image"
         src={img}
         alt={mood}
-        onClick={() => handleMoodChange(mood)}
+        value={mood}
+        onClick={handleMoodChange}
       />
       <h2>{mood}</h2>
     </div>
